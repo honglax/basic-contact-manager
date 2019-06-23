@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add new Contact</title>
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <button type="button" id="backBtn" class="btn btn-outline-primary">Back to Home</button>
+        <form class="needs-validation" style="margin-top: 30px;" novalidate>
+            <div class="form-group">
+                <label for="txtName">Full name</label>
+                <input type="text" id="txtName" class="form-control" placeholder="Enter full name" required>
+                <small id="fullNameHelp" class="form-text text-muted">We'll keep your identity secret!</small>
+                <div class="invalid-feedback">
+                    Please provide a valid name
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="txtAddress">Address</label>
+                <input type="text" id="txtAddress" class="form-control" placeholder="Enter address" required>
+                <div class="invalid-feedback">
+                    Please provide a valid address
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="txtPhoneNum">Phone Number</label>
+                <input type="tel" id="txtPhoneNum" class="form-control" placeholder="Enter phone number" required>
+                <small id="phoneNumHelp" class="form-text text-muted">Format: 0989110991 / (+84)989110991</small>
+                <div class="invalid-feedback">
+                    Please provide a valid phone number
+                </div>
+            </div>
+            <button id="addNewBtn" type="button" class="btn btn-primary">Add Contact</button>
+        </form>
+    </div>
+
+    <script src="./js/bootstrap/bootstrap.min.js"></script>
+    <script src="./js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/editContact.js"></script>
+</body>
+
+</html>
