@@ -1,7 +1,7 @@
 This is a contact management (Create, Read, Update, Delete) using HTML, CSS, Bootstrap 4 and basic JS.
 
 ## Database
-Using Node Package Manager JSON Server to store database as db.json
+Using Firebase Cloud Firestore to store Database.
 
-## Axios
-Promise based HTTP client for the browser and node.js
+## Hosting
+Using Firebase Hosting to host this website application.

@@ -5,9 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add new Contact</title>
+    <title>Edit Contact</title>
     <link rel="stylesheet" href="./css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <!-- update the version number as needed -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.2/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/6.2.2/firebase-auth.js"></script>
+    <script defer src="/__/firebase/6.2.2/firebase-database.js"></script>
+    <script defer src="/__/firebase/6.2.2/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/6.2.2/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.2/firebase-firestore.js"></script>
 </head>
 
 <body>
@@ -37,13 +47,14 @@
                     Please provide a valid phone number
                 </div>
             </div>
-            <button id="addNewBtn" type="button" class="btn btn-primary">Add Contact</button>
+            <button id="saveBtn" type="button" class="btn btn-primary">Save Contact</button>
         </form>
     </div>
 
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
     <script src="./js/bootstrap/bootstrap.min.js"></script>
     <script src="./js/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="./js/axios.min.js"></script>
     <script src="./js/editContact.js"></script>
 </body>
 

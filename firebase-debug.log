@@ -1,0 +1,25 @@
+[debug] [2019-06-23T06:34:57.868Z] ----------------------------------------------------------------------
+[debug] [2019-06-23T06:34:57.870Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2019-06-23T06:34:57.870Z] CLI Version:   7.0.0
+[debug] [2019-06-23T06:34:57.870Z] Platform:      darwin
+[debug] [2019-06-23T06:34:57.870Z] Node Version:  v10.16.0
+[debug] [2019-06-23T06:34:57.871Z] Time:          Sun Jun 23 2019 13:34:57 GMT+0700 (Indochina Time)
+[debug] [2019-06-23T06:34:57.871Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-23T06:34:57.880Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-23T06:34:57.880Z] > authorizing via signed-in user
+[debug] [2019-06-23T06:34:57.880Z] [iam] checking project jason-basic-contact-manager for permissions ["firebase.projects.get"]
+[debug] [2019-06-23T06:34:57.882Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/jason-basic-contact-manager:testIamPermissions  
+
+[debug] [2019-06-23T06:34:59.383Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-23T06:34:59.385Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/jason-basic-contact-manager  
+ 
+[debug] [2019-06-23T06:35:00.860Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/jason/Desktop/Basic-HTML-CSS-JS/Basic-Contact-Manager'...
+[info] 
+[debug] [2019-06-23T06:35:00.864Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/992213674661/clients/_:getWebAppConfig  
+ 
+[debug] [2019-06-23T06:35:01.914Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000

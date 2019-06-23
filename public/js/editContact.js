@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const url = 'http://localhost:9081/contacts';
     const addNewBtn = document.getElementById('addNewBtn');
     const saveBtn = document.getElementById('saveBtn');
     const txtName = document.getElementById('txtName');
@@ -8,9 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const pathName = window.location.hash.split('#');
     const id = pathName[1];
+    const db = firebase.firestore();
 
     if (id) {
-        formInfoRender();
+        formRender();
     }
 
     txtName.focus();
@@ -27,13 +27,20 @@ document.addEventListener('DOMContentLoaded', function () {
         saveBtn.addEventListener('click', saveContact);
     }
 
-    function formInfoRender() {
-        axios.get(url + '/' + id).then(function (response) {
-            contact = response.data;
-            txtName.value = contact.info.name;
-            txtAddress.value = contact.info.address;
-            txtPhoneNum.value = contact.info.phone;
-        });
+    function formRender() {
+        const docRef = db.collection('contacts').doc(id);
+        docRef.get().then(function (doc) {
+            if (doc.exists) {
+                data = doc.data();
+                txtName.value = data.info.name;
+                txtAddress.value = data.info.address;
+                txtPhoneNum.value = data.info.phoneNum;
+            } else {
+                console.log('No such document!');
+            }
+        }).catch(function (err) {
+            console.log('Error getting document: ', err);
+        })
     }
 
     function formValidation() {
@@ -60,12 +67,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 info: {
                     name: fullName,
                     address: address,
-                    phone: phoneNum
+                    phoneNum: phoneNum
                 }
             };
-            axios.post(url, newContact).then(function (response) {
+            db.collection('contacts').add(newContact).then(function (docRef) {
+                console.log('Document written with ID: ', docRef.id);
                 window.location = './';
+            }).catch(function (err) {
+                console.log('Error adding document: ', err);
             });
+
         }
     };
 
@@ -81,12 +92,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 info: {
                     name: fullName,
                     address: address,
-                    phone: phoneNum
+                    phoneNum: phoneNum
                 }
             };
-            axios.put(url + '/' + id, editedContact).then(function (response) {
+            db.collection('contacts').doc(id).set(editedContact).then(function () {
                 window.location = './';
-            });
+            }).catch(function (err) {
+                console.log('Error writing document: ', err);
+            })
         }
     }
 
