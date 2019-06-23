@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     const contactTable = document.getElementById('contact-info');
     const contactBody = contactTable.children[1];
-    const editBtn = '<button type="button" class="btn btn-outline-info btn-sm" data-type="edtBtn">Edit Contact</button>';
-    const deleteBtn = '<button type="button" class="btn btn-outline-danger btn-sm" data-type="delBtn" data-toggle="modal" data-target="#myModal">Delete Contact</button>';
+    const editBtn = '<button type="button" class="btn btn-outline-info btn-sm" data-type="edtBtn">Edit</button>';
+    const deleteBtn = '<button type="button" class="btn btn-outline-danger btn-sm" data-type="delBtn" data-toggle="modal" data-target="#myModal">Delete</button>';
     const addBtn = document.getElementById('addNewBtn');
     const btnConfirmDelete = document.getElementById('btnConfirmDelete');
     const txtSearch = document.getElementById('txtSearch');
