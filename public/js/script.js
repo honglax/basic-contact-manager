@@ -77,14 +77,15 @@ document.addEventListener('DOMContentLoaded', function () {
         //     return contact.id != id;
         // });
         db.collection('contacts').doc(id).delete().then(function () {
-            getContacts();
+            // getContacts();
+            newContacts = contacts.filter(function (contact) {
+                return contact.id != id;
+            });
+            contacts = newContacts;
+            renderByArr(contacts);
         }).catch(function (error) {
             console.log('Error removing document: ', error);
         });
-        newContacts = contacts.filter(function (contact) {
-            return contact.id != id;
-        });
-        contacts = newContacts;
     };
 
     function searchContact(event) {
