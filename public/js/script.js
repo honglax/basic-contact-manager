@@ -7,14 +7,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const btnConfirmDelete = document.getElementById('btnConfirmDelete');
     const txtSearch = document.getElementById('txtSearch');
     const searchMethod = document.getElementById('searchMethod');
+    const loaderContainer = document.getElementById('loader-container');
 
-    let contacts = [];
     const db = firebase.firestore();
+    loaderContainer.style.display = 'block';
 
     function getContacts() {
         db.collection('contacts').get().then(function (snapshot) {
             collections = snapshot.docs;
             render(collections);
+            loaderContainer.style.display = 'none';
         });
     }
 
@@ -35,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
     searchMethod.addEventListener('change', searchContact);
 
     function render(collections) {
+        let contacts = [];
         let content = collections.map(function (contact) {
             let data = contact.data();
             let newContact = {
@@ -51,12 +54,12 @@ document.addEventListener('DOMContentLoaded', function () {
         contactBody.innerHTML = content.join('');
     };
 
-    function renderByArr(contacts) {
-        let content = contacts.map(function (contact) {
-            return '<tr data-id="' + contact.id + '"><th scope="row">' + (contacts.indexOf(contact) + 1) + '</th><td>' + contact.info.name + '</td><td>' + contact.info.address + '</td><td>' + contact.info.phoneNum + '</td><td>' + editBtn + '</td><td>' + deleteBtn + '</td></tr>'
-        });
-        contactBody.innerHTML = content.join('');
-    }
+    // function renderByArr(contacts) {
+    //     let content = contacts.map(function (contact) {
+    //         return '<tr data-id="' + contact.id + '"><th scope="row">' + (contacts.indexOf(contact) + 1) + '</th><td>' + contact.info.name + '</td><td>' + contact.info.address + '</td><td>' + contact.info.phoneNum + '</td><td>' + editBtn + '</td><td>' + deleteBtn + '</td></tr>'
+    //     });
+    //     contactBody.innerHTML = content.join('');
+    // }
 
     function onContactClicked(event) {
         var button = event.target;
@@ -76,15 +79,17 @@ document.addEventListener('DOMContentLoaded', function () {
         // newContacts = contacts.filter(function (contact) {
         //     return contact.id != id;
         // });
+        loaderContainer.style.display = 'block';
         db.collection('contacts').doc(id).delete().then(function () {
-            // getContacts();
-            newContacts = contacts.filter(function (contact) {
-                return contact.id != id;
-            });
-            contacts = newContacts;
-            renderByArr(contacts);
+            getContacts();
+            // newContacts = contacts.filter(function (contact) {
+            //     return contact.id != id;
+            // });
+            // // contacts = newContacts;
+            // renderByArr(newContacts);
         }).catch(function (error) {
             console.log('Error removing document: ', error);
+            loaderContainer.style.display = 'none';
         });
     };
 

@@ -1,58 +1,29 @@
-[debug] [2019-06-23T07:58:19.099Z] ----------------------------------------------------------------------
-[debug] [2019-06-23T07:58:19.101Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
-[debug] [2019-06-23T07:58:19.101Z] CLI Version:   7.0.0
-[debug] [2019-06-23T07:58:19.101Z] Platform:      darwin
-[debug] [2019-06-23T07:58:19.101Z] Node Version:  v10.16.0
-[debug] [2019-06-23T07:58:19.102Z] Time:          Sun Jun 23 2019 14:58:19 GMT+0700 (Indochina Time)
-[debug] [2019-06-23T07:58:19.102Z] ----------------------------------------------------------------------
+[debug] [2019-06-23T08:34:58.060Z] ----------------------------------------------------------------------
+[debug] [2019-06-23T08:34:58.062Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2019-06-23T08:34:58.062Z] CLI Version:   7.0.0
+[debug] [2019-06-23T08:34:58.062Z] Platform:      darwin
+[debug] [2019-06-23T08:34:58.062Z] Node Version:  v10.16.0
+[debug] [2019-06-23T08:34:58.063Z] Time:          Sun Jun 23 2019 15:34:58 GMT+0700 (Indochina Time)
+[debug] [2019-06-23T08:34:58.063Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2019-06-23T07:58:19.114Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2019-06-23T07:58:19.114Z] > authorizing via signed-in user
-[debug] [2019-06-23T07:58:19.114Z] [iam] checking project jason-basic-contact-manager for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
-[debug] [2019-06-23T07:58:19.116Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/jason-basic-contact-manager:testIamPermissions  
+[debug] [2019-06-23T08:34:58.071Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-23T08:34:58.071Z] > authorizing via signed-in user
+[debug] [2019-06-23T08:34:58.071Z] [iam] checking project jason-basic-contact-manager for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-06-23T08:34:58.073Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-06-23T08:34:58.073Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-06-23T08:34:58.352Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-23T08:34:58.364Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/jason-basic-contact-manager:testIamPermissions  
 
-[debug] [2019-06-23T07:58:20.455Z] <<< HTTP RESPONSE 200
-[debug] [2019-06-23T07:58:20.457Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/jason-basic-contact-manager  
+[debug] [2019-06-23T08:34:59.654Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-23T08:34:59.656Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/jason-basic-contact-manager  
  
-[debug] [2019-06-23T07:58:20.906Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-23T08:35:00.198Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Deploying to 'jason-basic-contact-manager'...
 [info] 
 [info] i  deploying firestore, hosting
 [info] i  firestore: checking firestore.rules for compilation errors...
 [info] i  firestore: reading indexes from firestore.indexes.json...
-[debug] [2019-06-23T07:58:20.914Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/jason-basic-contact-manager:test  
-
-[debug] [2019-06-23T07:58:22.438Z] <<< HTTP RESPONSE 200
-[info] ✔  firestore: rules file firestore.rules compiled successfully
-[debug] [2019-06-23T07:58:22.439Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/jason-basic-contact-manager/versions  
-
-[debug] [2019-06-23T07:58:24.266Z] <<< HTTP RESPONSE 200
-[info] i  firestore: uploading rules firestore.rules...
-[debug] [2019-06-23T07:58:24.268Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/jason-basic-contact-manager/rulesets  
-
-[debug] [2019-06-23T07:58:24.269Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1beta2/projects/jason-basic-contact-manager/databases/(default)/collectionGroups/-/indexes  
- 
-[debug] [2019-06-23T07:58:25.330Z] <<< HTTP RESPONSE 200
-[debug] [2019-06-23T07:58:25.331Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1beta2/projects/jason-basic-contact-manager/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false  
- 
-[debug] [2019-06-23T07:58:25.816Z] <<< HTTP RESPONSE 200
-[debug] [2019-06-23T07:58:25.817Z] [rules] created ruleset projects/jason-basic-contact-manager/rulesets/36474460-d0fd-4aec-ac6b-a7e33eef8eac
-[debug] [2019-06-23T07:58:26.312Z] <<< HTTP RESPONSE 200
-[info] ✔  firestore: deployed indexes in firestore.indexes.json successfully
-[info] i  hosting[jason-basic-contact-manager]: beginning deploy...
-[info] i  hosting[jason-basic-contact-manager]: found 28 files in public
-[debug] [2019-06-23T07:58:26.324Z] [hosting] hash cache [cHVibGlj] load error: lines is not defined
-[debug] [2019-06-23T07:58:26.460Z] [hosting] hash cache [cHVibGlj] stored for 28 files
-[debug] [2019-06-23T07:58:26.460Z] [hosting][hash queue][FINAL]
-[debug] [2019-06-23T07:58:26.460Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/jason-basic-contact-manager/versions/0aa51c24b2105a26:populateFiles  
- <request body omitted>
-[debug] [2019-06-23T07:58:28.683Z] <<< HTTP RESPONSE 200
-[debug] [2019-06-23T07:58:28.685Z] [hosting][populate queue][FINAL]
-[debug] [2019-06-23T07:58:28.686Z] [hosting] uploads queued: 1
-[debug] [2019-06-23T07:58:32.849Z] [hosting][upload queue][FINAL]
-[info] ✔  hosting[jason-basic-contact-manager]: file upload complete
-[debug] [2019-06-23T07:58:32.850Z] [hosting] deploy completed after 6536ms
-[debug] [2019-06-23T07:58:33.054Z] [rules] releasing cloud.firestore with ruleset projects/jason-basic-contact-manager/rulesets/36474460-d0fd-4aec-ac6b-a7e33eef8eac
-[debug] [2019-06-23T07:58:33.055Z] >>> HTTP REQUEST PATCH https://firebaserules.googleapis.com/v1/projects/jason-basic-contact-manager/releases/cloud.firestore  
+[debug] [2019-06-23T08:35:00.206Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/jason-basic-contact-manager:test  
 

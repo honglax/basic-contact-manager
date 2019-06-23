@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const txtName = document.getElementById('txtName');
     const txtAddress = document.getElementById('txtAddress');
     const txtPhoneNum = document.getElementById('txtPhoneNum');
+    const loaderContainer = document.getElementById('loader-container');
 
     const pathName = window.location.hash.split('#');
     const id = pathName[1];
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (addNewBtn) {
+        loaderContainer.style.display = 'none';
         addNewBtn.addEventListener('click', addNewContact);
     }
 
@@ -38,9 +40,11 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 console.log('No such document!');
             }
+            loaderContainer.style.display = 'none';
         }).catch(function (err) {
             console.log('Error getting document: ', err);
-        })
+            loaderContainer.style.display = 'none';
+        });
     }
 
     function formValidation() {
@@ -70,11 +74,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     phoneNum: phoneNum
                 }
             };
+            loaderContainer.style.display = 'block';
             db.collection('contacts').add(newContact).then(function (docRef) {
-                console.log('Document written with ID: ', docRef.id);
                 window.location = './';
             }).catch(function (err) {
                 console.log('Error adding document: ', err);
+                loaderContainer.style.display = 'none';
             });
 
         }
