@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let contacts = [];
 
     const db = firebase.firestore();
-    loaderContainer.style.display = 'block';
+    loaderContainer.style.display = 'flex';
 
     function getContacts() {
         db.collection('contacts').get().then(function (snapshot) {
