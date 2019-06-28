@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     phoneNum: phoneNum
                 }
             };
-            loaderContainer.style.display = 'block';
+            loaderContainer.style.display = 'flex';
             db.collection('contacts').add(newContact).then(function (docRef) {
                 window.location = './';
             }).catch(function (err) {
